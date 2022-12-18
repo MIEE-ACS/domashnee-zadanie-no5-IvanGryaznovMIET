@@ -49,7 +49,7 @@ public class MyDate
         else if (Month < 10)
         { text =  Day + "." + '0' + Month + "." + Year; }
         else
-        { text = '0' + Day + "." + Month + "." + Year; }
+        { text = Day + "." + Month + "." + Year; }
         return text;
     }
 }
@@ -67,31 +67,12 @@ namespace van_dz5
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var myData = new MyDate();
             var newData = tb1.Text;
-            var newDataArray = tb1.Text.Split('.');
+            var newDataArray = tb1.Text.Split('.'); //Split делает массив с разделителем ТОЧКОЙ в данной случае
             string hh = "";
             int hhh = 0;
             hh = tb1.Text;
@@ -105,19 +86,17 @@ namespace van_dz5
             if (hhh == 2)
             {
 
-                // Можно все проверить на корректность через TryParse
-                var newTimeArray = tb1.Text.Split('.'); // возможен null
+                var newTimeArray = tb1.Text.Split('.'); //Split делает массив с разделителем ТОЧКОЙ в данной случае
 
-                // Можно все проверить на корректность через TryParse
-                if (int.TryParse(newTimeArray[0], out Int32 day) == true)
-                { day = Int32.Parse(newTimeArray[0]); }
+                if (int.TryParse(newTimeArray[0], out int day) == true)
+                { day = int.Parse(newTimeArray[0]); }
                 else
                 {
                     MessageBox.Show("Ошибка ввода дня.");
                     day = 0;
                 }
                 if (int.TryParse(newTimeArray[1], out int month) == true)
-                { month = Int32.Parse(newTimeArray[1]); }
+                { month = int.Parse(newTimeArray[1]); }
                 else
                 {
                     MessageBox.Show("Ошибка ввода месяца.");
@@ -148,8 +127,10 @@ namespace van_dz5
             {
                 MessageBox.Show("Вы ввели неправильную дату.");
             }
+            hhh = 0;
     }
 
+        //Увеличение даты.
         private void b2_Click(object sender, RoutedEventArgs e)
         {
             var myData = new MyDate();
@@ -179,9 +160,9 @@ namespace van_dz5
             var day = int.Parse(newDataArray[0]);
             var month = int.Parse(newDataArray[1]);
             var year = int.Parse(newDataArray[2]);
-            if ((month + month1 <= 12 & year + month1 <= 2022) && (day + day1 >= 0 && month + month1 >= 0 && year + year1 >= 0))
+            if ((month + month1 <= 12 & year + month1 <= 2022 && day + day1 <= 28) && (day + day1 >= 0 && month + month1 >= 0 && year + year1 >= 0))
             {
-                if (month + month1 == 2 && day + day1 <= 28 || month + month1 != 2)
+                if (month + month1 == 2 && day + day1 <= 28 || month + month1 != 2) //Февраль условие
                 {
                     myData.SetData(day + day1 - 48, month + month1, year + year1);
                     string text = myData.ShowData();
@@ -192,7 +173,7 @@ namespace van_dz5
             else
                 MessageBox.Show("Ошибка!");
         }
-
+        //Уменьшение даты.
         private void b3_Click(object sender, RoutedEventArgs e)
         {
             var myData = new MyDate();
@@ -223,9 +204,9 @@ namespace van_dz5
             var day = int.Parse(newDataArray[0]);
             var month = int.Parse(newDataArray[1]);
             var year = int.Parse(newDataArray[2]);
-            if ((month - month1 <= 12 & year - month1 <= 2022) && (day - day1 >= 0 && month - month1 >= 0 && year - year1 >= 0) && day <= 31)
+            if ((month - month1 <= 12 & year - year1 <= 2022) && (day - day1 >= 0 && month - month1 >= 0 && year - year1 >= 0) && day <= 31)
             {
-                if (month - month1 == 2 && day - day1 <= 28 || month - month1 != 2)
+                if (month - month1 == 2 && day - day1 <= 28 || month - month1 != 2) //Февраль условие
                 {
                     myData.SetData(day - day1 - 48, month - month1, year - year1);
                     string text = myData.ShowData();
@@ -235,6 +216,26 @@ namespace van_dz5
             }
             else
                 MessageBox.Show("Ошибка!");
+        }
+
+        private void tbb1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tb3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

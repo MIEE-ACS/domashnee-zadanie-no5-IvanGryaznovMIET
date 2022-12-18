@@ -12,13 +12,13 @@
         <TextBlock HorizontalAlignment="Left" Margin="352,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Месяц"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="454,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Год"/></TextBlock>
         <Button x:Name="b2" Content="Увеличить на" HorizontalAlignment="Left" Margin="331,337,0,0" VerticalAlignment="Top" Click="b2_Click"/>
-        <TextBox x:Name="tb2" HorizontalAlignment="Left" Margin="243,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Text="0" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="tb2" HorizontalAlignment="Left" Margin="243,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Text="0" TextChanged="tb2_TextChanged"/>
         <TextBox x:Name="tb1" HorizontalAlignment="Left" Margin="193,255,0,0" TextWrapping="Wrap" Text="00.00.0000" VerticalAlignment="Top" Width="99" Height="20" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="tb3" HorizontalAlignment="Left" Margin="346,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Text="0" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox x:Name="tb4" HorizontalAlignment="Left" Margin="439,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Text="0" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox x:Name="tb3" HorizontalAlignment="Left" Margin="346,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Text="0" TextChanged="tb3_TextChanged"/>
+        <TextBox x:Name="tb4" HorizontalAlignment="Left" Margin="439,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Text="0"/>
         <Button x:Name="b3" Content="Уменьшить на" HorizontalAlignment="Left" Margin="329,370,0,0" VerticalAlignment="Top" Click="b3_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="68,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Запишите новую дату"/><Run Language="ru-ru" Text=":"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="tbb1" HorizontalAlignment="Left" Margin="473,255,0,0" TextWrapping="Wrap" Text="12.12.2013" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbb1" HorizontalAlignment="Left" Margin="473,255,0,0" TextWrapping="Wrap" Text="12.12.2013" VerticalAlignment="Top" Width="120" TextChanged="tbb1_TextChanged"/>
 
     </Grid>
 </Window>
