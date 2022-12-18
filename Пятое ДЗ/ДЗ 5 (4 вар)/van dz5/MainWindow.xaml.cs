@@ -92,45 +92,62 @@ namespace van_dz5
             var myData = new MyDate();
             var newData = tb1.Text;
             var newDataArray = tb1.Text.Split('.');
-
-            // Можно все проверить на корректность через TryParse
-            var newTimeArray = tb1.Text.Split('.'); // возможен null
-
-            // Можно все проверить на корректность через TryParse
-            if (int.TryParse(newTimeArray[0], out Int32 day) == true)
-            {  day = Int32.Parse(newTimeArray[0]); }
-            else
+            string hh = "";
+            int hhh = 0;
+            hh = tb1.Text;
+            for(int i = 0; i < hh.Length; i++)
             {
-                MessageBox.Show("Ошибка ввода дня.");
-                day = 0;
-            }
-            if (int.TryParse(newTimeArray[1], out int month) == true)
-            { month = Int32.Parse(newTimeArray[1]); }
-            else
-            {
-                MessageBox.Show("Ошибка ввода месяца.");
-                month = 0;
-            }
-            if (int.TryParse(newTimeArray[2], out int year) == true)
-            { year = int.Parse(newTimeArray[2]); }
-            else
-            {
-                MessageBox.Show("Ошибка ввода года.");
-                year = 0;
-            }
-
-            if (month <= 12 & year <= 2022)
-            {
-                if (month == 2 && day <= 28 || month != 2)
+                if(hh[i] == '.')
                 {
-                    myData.SetData(day -48, month, year);
-                    string text = myData.ShowData();
-                    MessageBox.Show(text);
-                    tbb1.Text = text;
+                    hhh++;
                 }
             }
+            if (hhh == 2)
+            {
+
+                // Можно все проверить на корректность через TryParse
+                var newTimeArray = tb1.Text.Split('.'); // возможен null
+
+                // Можно все проверить на корректность через TryParse
+                if (int.TryParse(newTimeArray[0], out Int32 day) == true)
+                { day = Int32.Parse(newTimeArray[0]); }
+                else
+                {
+                    MessageBox.Show("Ошибка ввода дня.");
+                    day = 0;
+                }
+                if (int.TryParse(newTimeArray[1], out int month) == true)
+                { month = Int32.Parse(newTimeArray[1]); }
+                else
+                {
+                    MessageBox.Show("Ошибка ввода месяца.");
+                    month = 0;
+                }
+                if (int.TryParse(newTimeArray[2], out int year) == true)
+                { year = int.Parse(newTimeArray[2]); }
+                else
+                {
+                    MessageBox.Show("Ошибка ввода года.");
+                    year = 0;
+                }
+
+                if (month <= 12 & year <= 2022)
+                {
+                    if (month == 2 && day <= 28 || month != 2)
+                    {
+                        myData.SetData(day - 48, month, year);
+                        string text = myData.ShowData();
+                        MessageBox.Show(text);
+                        tbb1.Text = text;
+                    }
+                }
+                else
+                    MessageBox.Show("Ошибка!");
+            }
             else
-                MessageBox.Show("Ошибка!");
+            {
+                MessageBox.Show("Вы ввели неправильную дату.");
+            }
     }
 
         private void b2_Click(object sender, RoutedEventArgs e)
